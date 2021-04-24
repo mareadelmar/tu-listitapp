@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="description" content="Listitapp" />
+        <meta name="keywords" content="Lista, Compras, To-do, Supermercado" />
+        <meta name="author" content="Mar Ortega" />
+        <meta name="copyright" content="Mar - SummerHack2021" />
+        <meta name="robots" content="index follow" />
+
+        <!-- facebook -->
+        <meta property="og:title" content="Listitapp" />
+        <meta property="og:description" content="Tu lista de compras" />
+        <meta property="og:type" content="Lista de compras" />
+        <meta
+            property="og:image"
+            content="https://tu-listitapp.web.app/images/iconos/logo1.svg"
+        />
+        <meta property="og:url" content="https://tu-listitapp.web.app/" />
+
+        <!-- twitter -->
+        <meta property="twitter:title" content="Listitapp" />
+        <meta property="twitter:description" content="Tu lista de compras" />
+        <meta property="twitter:type" content="Lista de compras" />
+        <meta
+            property="twitter:image"
+            content="https://tu-listitapp.web.app/images/iconos/logo1.svg"
+        />
+        <meta property="twitter:url" content="https://tu-listitapp.web.app/" />
+
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="images/iconos/logo1.svg" type="image/svg" />
+        <title>Listitapp</title>
+    </head>
+
+    <body>
+        <header class="header">
+            <img src="images/iconos/logo1.svg" class="header-icono" />
+            <h1 id="titulo">Listitapp</h1>
+            <div id="borrar-items">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                </svg>
+            </div>
+        </header>
+
+        <section class="sec-inicio" id="sec-inicio">
+            <div class="text-inicio">
+                <p><i>¡Agrega artículos a tu lista!</i></p>
+                <img src="images/iconos/parade.svg" class="text-inicio-img" />
+            </div>
+        </section>
+
+        <button id="btn-modal">+</button>
+        <label for="btn-modal" class="label-modal"></label>
+        <div class="modal" id="sec-modal">
+            <div id="modal-flex">
+                <div class="conten-modal">
+                    <header><h1>Nuevo producto</h1></header>
+                    <label id="cerrar-modal"> x </label>
+                    <div class="sec-nuevoitem" id="sec-nuevoitem">
+                        <div class="form">
+                            <input
+                                class="form-control"
+                                type="text"
+                                placeholder="Nombre del producto"
+                                id="form-titulo"
+                                maxlength="20"
+                                required
+                            />
+                        </div>
+                        <div class="form">
+                            <label for="categorias" class="form-label"
+                                >Categoría:</label
+                            >
+                            <select
+                                class="form-select"
+                                id="form-categorias"
+                                required
+                            >
+                                <option value="images/iconos/comodin.svg">
+                                    Varios
+                                </option>
+                                <option value="images/iconos/verduras.svg">
+                                    Verdulería
+                                </option>
+                                <option value="images/iconos/carne.svg">
+                                    Carnicería
+                                </option>
+                                <option value="images/iconos/lacteos.svg">
+                                    Lácteos
+                                </option>
+                                <option value="images/iconos/panaderia.svg">
+                                    Panadería
+                                </option>
+                                <option value="images/iconos/vegano.png">
+                                    Vegano
+                                </option>
+                                <option value="images/iconos/enlatados.svg">
+                                    Almacén
+                                </option>
+                                <option value="images/iconos/bebidas.svg">
+                                    Bebidas
+                                </option>
+                                <option value="images/iconos/limpieza.svg">
+                                    Limpieza
+                                </option>
+                                <option value="images/iconos/banio.svg">
+                                    Baño
+                                </option>
+                                <option value="images/iconos/mascota.svg">
+                                    Mascota
+                                </option>
+                                <option value="images/iconos/electronica.svg">
+                                    Electrónica
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form">
+                            <textarea
+                                id="form-descrip"
+                                class="form-control"
+                                placeholder="Detalles..."
+                                maxlength="200"
+                            ></textarea>
+                        </div>
+                        <button type="button" id="btn-add">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="sec-listaitems">
+            <div>
+                <ul class="listaitems" id="lista-items"></ul>
+            </div>
+        </section>
+
+        <section id="sec-detalles">
+            <div id="conte-detalles">
+                <img src="" class="detalle-imagen" id="detalle-icono" />
+                <h1 id="detalle-titulo"></h1>
+                <p id="detalle-descrip"></p>
+                <button id="btn-cerrardetalle">cerrar</button>
+            </div>
+        </section>
+
+        <script src="main.js"></script>
+        <script
+            src="https://kit.fontawesome.com/8967c0963e.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
